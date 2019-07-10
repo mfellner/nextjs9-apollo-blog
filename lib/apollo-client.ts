@@ -43,8 +43,10 @@ export function getApolloClient(args: Args = {}) {
 
   // Reuse client on the client-side
   if (!apolloClient) {
+    console.log('new apolloClient');
     apolloClient = createNewClient(args);
   }
+  console.log('reuse apolloClient');
 
   return apolloClient;
 }

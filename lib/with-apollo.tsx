@@ -11,6 +11,7 @@ export type WithApolloProps = {
 };
 
 type NextAppComponentType = typeof NextApp;
+type GetInitialPropsFn = NextAppComponentType['getInitialProps'];
 type AppComponentType = ComponentType<AppInitialProps & WithApolloProps> & NextAppComponentType;
 type WithApolloComponentProps = { apolloState: NormalizedCacheObject };
 
@@ -20,7 +21,7 @@ export default function withApollo(App: AppComponentType) {
   return class WithApollo extends React.Component<AppProps & WithApolloComponentProps> {
     public static displayName = 'withApollo(App)';
 
-    public static async getInitialProps(ctx): Promise<AppInitialProps & WithApolloComponentProps> {
+    public static getInitialProps: GetInitialPropsFn = async ctx => {
       const { Component, router } = ctx;
 
       const appProps: AppInitialProps = await App.getInitialProps(ctx);
@@ -55,7 +56,7 @@ export default function withApollo(App: AppComponentType) {
       };
 
       return initialProps;
-    }
+    };
 
     private readonly apolloClient: ApolloClient<NormalizedCacheObject>;
 

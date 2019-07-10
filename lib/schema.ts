@@ -9,7 +9,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    article(id: ID): Article!
+    article(id: ID): Article
     articles: [Article!]!
   }
 `;
@@ -30,7 +30,7 @@ const articles: Article[] = [
 const resolvers = {
   Query: {
     article(parent, { id }, context) {
-      return articles.find(article => article.id === id);
+      return articles.find(article => article.id === id) || null;
     },
     articles(parent, args, context) {
       return articles;
