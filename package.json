@@ -1,0 +1,23 @@
+{
+  "name": "nextjs9-apollo-blog",
+  "version": "1.0.0",
+  "description": "Example of using Next.js 9 with Apollo and TypeScript",
+  "author": "Maximilian Fellner <max.fellner@gmail.com>",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^9.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.2",
+    "@types/react": "^16.8.23",
+    "typescript": "^3.5.3"
+  }
+}
